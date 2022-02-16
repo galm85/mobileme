@@ -55,3 +55,57 @@
     min-height: 90vh;
     font-family:var(--main-font);
 }
+
+
+
+
+
+
+.page-content-container{
+    display:flex;
+    width: 80%;
+    margin:50px auto;
+}
+
+.page-filter{
+    width: 20%;
+}
+
+.page-content{
+    flex:1;
+    display:flex;
+}
+
+.product-card{
+    width: 15%;
+    margin:30px 50px;
+    height: 350px;
+
+    
+}
+
+.product-image{
+    width: 100%;
+    transition: all 0.2s ease;
+    height: 70%;
+}
+
+.product-image img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.product-card:hover .product-image{
+    transform: scale(1.1);
+}
+
+.product-data{
+    margin-top: 5px;
+    height: 20%;
+}
+
+.add-to-cart-btn{
+    width: 100%;
+    margin-top: 10px;
+   
+}

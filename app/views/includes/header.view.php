@@ -13,7 +13,11 @@
     <!-- Bulma CSS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 
-    <!-- Custom Css -->
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="<?=ASSETS?>/css/main.css">
 
 
@@ -23,10 +27,11 @@
 <header>
   <div class="sign-in-bar">
     <a href="<?=ROOT?>/sign-in">Sign-in</a>
+    <a href="<?=ROOT?>/admin">Admin Panel</a>
   </div>
     <nav class="navbar my-navbar " role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
+        <a class="navbar-item" href="<?=ROOT?>">
           <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
         </a>
 
@@ -39,11 +44,11 @@
 
       <div id="navbarBasicExample" class="navbar-menu ">
         <div class="navbar-start my-links">
-          <a class="navbar-item">
+          <a href="<?=ROOT?>/smartphones" class="navbar-item">
             SmartPhones & Accessories
           </a>
 
-          <a class="navbar-item">
+          <a href="<?=ROOT?>/watches" class="navbar-item">
             Headsets and Watches
           </a>
           <a class="navbar-item">
@@ -54,7 +59,7 @@
           </a>
 
           <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">
+            <a href="<?=ROOT?>/watches" class="navbar-link">
               Headsets and Watches
             </a>
 
