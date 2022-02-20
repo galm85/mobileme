@@ -79,10 +79,45 @@
         }
 
 
+        public function getSales(){
 
+            $sql = "SELECT * FROM products WHERE on_sale = 1";
+            $products = $this->query($sql);
+            return $products;
+        }
+
+
+        public function getAllSamerphones(){
+
+            $sql = "SELECT p.*,b.title as brand_title FROM products p LEFT JOIN brands b ON b.id = p.brand_id WHERE p.categorie_id = 1";
+            $products = $this->query($sql);
+            return $products;
+
+        }
+
+        public function getAllSamerphonesByBrand($brand){
+            $sql = "SELECT p.*,b.title as brand_title FROM products p LEFT JOIN brands b On p.brand_id = b.id WHERE p.categorie_id = 1 AND b.title ='$brand'";
+            $products = $this->query($sql);
+            return $products;
+
+        }
         
-                    
+        
+        public function getAllAccessories(){
 
+            $sql = "SELECT p.*,b.title as brand_title FROM products p LEFT JOIN brands b ON b.id = p.brand_id WHERE p.categorie_id = 3";
+            $products = $this->query($sql);
+            return $products;
+
+        }
+
+
+        public function getAllAccessoriesByBrand($brand){
+            $sql = "SELECT p.*,b.title as brand_title FROM products p LEFT JOIN brands b On p.brand_id = b.id WHERE p.categorie_id = 3 AND b.title ='$brand'";
+            $products = $this->query($sql);
+            return $products;
+
+        }
              
         
 

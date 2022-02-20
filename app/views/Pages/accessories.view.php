@@ -32,7 +32,7 @@
   <div class="main-banner">
     <img src="<?=ASSETS?>/images/mainBanner.png"  alt="iphone 13 banner">
     <div class="banner-data">
-      <h1 class="main-title">SmartPhones & Accessories</h1>
+      <h1 class="main-title">Accessories</h1>
     </div>
   </div>
 
@@ -43,10 +43,10 @@
         
         <div class="col-2">
             <h3>Select Brand</h3>
-            <div><a href="<?=ROOT?>/smartphones">ALL</a> </div>
+            <div><a href="<?=ROOT?>/accessories">ALL</a> </div>
             <?php foreach($brands as $brand):?>
               <div>
-                <a href="<?=ROOT?>/smartphones/<?=$brand->title?>">
+                <a href="<?=ROOT?>/accessories/<?=$brand->title?>">
                   <img src="<?=ASSETS?>/images/brands/<?=$brand->image?>" width="50px" alt="">  
                 </a> 
               </div>

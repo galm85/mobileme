@@ -1,5 +1,5 @@
 
-<?php $this->view('includes/header');?>
+<?php $this->view('admin/dashboard-header');?>
 
 <h1>Add New Product</h1>
 
@@ -7,7 +7,7 @@
 
 <div class="contianer">
     <div class="row justify-content-center">
-        <div class="col-6">
+        <div class="col-9">
      
             <form action="<?=ROOT?>/admin/new_product" method="POST" enctype="multipart/form-data">
                 
@@ -142,4 +142,4 @@
 </div>
 
 
-<?php $this->view('includes/footer');?>
+<?php $this->view('admin/dashboard-footer');?>

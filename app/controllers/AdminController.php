@@ -15,10 +15,25 @@
     public function products($brand=null,$item=null){
 
         $productModel = new Product();
+        $categoryModel = new Category();
+        
+        if(isset($_POST['filter']) && $_POST['filter'] != '' ){
+            $cat_id = $_POST['filter'];
 
-        $query = "SELECT p.*,c.title as category,b.title as brand FROM products p 
+            $query = "SELECT p.*,c.title as category,b.title as brand FROM products p 
+            LEFT JOIN categories c ON p.categorie_id = c.id
+            LEFT JOIN brands b ON p.brand_id = b.id
+            WHERE c.id = $cat_id" ;
+            
+        }else{
+            $query = "SELECT p.*,c.title as category,b.title as brand FROM products p 
                   LEFT JOIN categories c ON p.categorie_id = c.id
                   LEFT JOIN brands b ON p.brand_id = b.id";
+        }
+
+
+
+        
         
 
         $products = $productModel->query($query);
@@ -27,6 +42,7 @@
         
         self::$data['title'] .= 'Admin - Products';
         self::$data['products'] = $products;
+        self::$data['categories'] = $categoryModel->findAll();
         $this->view('admin/products',self::$data);
     }
 
@@ -87,10 +103,6 @@
     }
     
 
-
-
-
-
     public function delete_product(){
 
         $productModel = new Product();
@@ -101,6 +113,17 @@
     }
 
 
+    public function categories(){
+
+        $categoryModel = new Category();
+
+        self::$data['categories'] = $categoryModel->findAll();
+        self::$data['title'] .= 'Admin - Categories';
+        $this->view('admin/categories',self::$data);
+
+    }
  
+    
+    
 
 }

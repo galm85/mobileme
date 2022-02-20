@@ -38,9 +38,32 @@
   </div>
 
 
-  <div class="best-cells">
-    
-  </div>
+
+  <section class="best-cells">
+    <div class="container">
+      
+      <div class="row mt-5">
+        <div class="col-12">
+          <h2 class="display-5 text-center">Best Sales</h2>
+        </div>
+      </div>
+
+      <div class="row mt-5 justify-content-between">
+        <?php if($sales):?>
+          <?php foreach($sales as $item):?>
+            <div class="col-3 mx-1">
+                <a href="">
+                  <img src="<?=ASSETS?>/images/products/<?=$item->main_image?>" width="100%"  alt="">
+                </a>
+            </div>
+          <?php endforeach;?>
+        <?php endif;?>
+      </div>
+
+
+
+    </div>  
+  </section>
 
 
 

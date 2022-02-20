@@ -45,13 +45,18 @@
       <div id="navbarBasicExample" class="navbar-menu ">
         <div class="navbar-start my-links">
           <a href="<?=ROOT?>/smartphones" class="navbar-item">
-            SmartPhones & Accessories
+            SmartPhones
           </a>
 
           <a href="<?=ROOT?>/watches" class="navbar-item">
-            Headsets and Watches
+            Watches
           </a>
-          <a class="navbar-item">
+
+          <a href="<?=ROOT?>/accessories" class="navbar-item">
+            Accessories
+          </a>
+
+          <a href="<?=ROOT?>/sales" class="navbar-item">
             Sales
           </a>
           <a class="navbar-item">

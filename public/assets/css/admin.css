@@ -1,0 +1,18 @@
+.admin-nav{
+    display: flex;
+    flex-direction: column;
+    min-height: 90vh;
+    border-right: 1px solid lightgray;
+}
+
+
+.admin-nav a{
+    display: block;
+    text-decoration: none;
+    width: 100%;
+    background-color: antiquewhite;
+    height: 50px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+
+}

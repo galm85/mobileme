@@ -32,7 +32,7 @@
   <div class="main-banner">
     <img src="<?=ASSETS?>/images/mainBanner.png"  alt="iphone 13 banner">
     <div class="banner-data">
-      <h1 class="main-title">SmartPhones & Accessories</h1>
+      <h1 class="main-title">Sales</h1>
     </div>
   </div>
 
@@ -41,20 +41,9 @@
     
       <div class="row mt-5">
         
-        <div class="col-2">
-            <h3>Select Brand</h3>
-            <div><a href="<?=ROOT?>/smartphones">ALL</a> </div>
-            <?php foreach($brands as $brand):?>
-              <div>
-                <a href="<?=ROOT?>/smartphones/<?=$brand->title?>">
-                  <img src="<?=ASSETS?>/images/brands/<?=$brand->image?>" width="50px" alt="">  
-                </a> 
-              </div>
-              <?php endforeach;?>
-        </div>
-       
 
-        <div class="col-10">
+
+        <div class="col-12">
             <div class="row justify-space-between">
                 <?php if(count($products) > 0): ?>
                   <?php foreach($products as $row):?>
