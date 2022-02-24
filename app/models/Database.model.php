@@ -33,6 +33,7 @@
          * @param String $type - type of the query result (default as FATCH)
          */
         public function query($query,$data=[],$type='fetch'){
+         
             try{
                 $db = $this->connect();
                 $statement = $db->prepare($query);
@@ -71,6 +72,7 @@
             try{
                 $db = $this->connect();
                 $statement = $db->prepare("SELECT * FROM $this->table WHERE $column =:value");
+               
                 $check = $statement->execute(['value'=>$value]);
                 if($check){
                     $data = $statement->fetch(PDO::FETCH_OBJ);
@@ -99,6 +101,10 @@
 
         }
 
+
+        public function update($data){
+            
+        }
 
     }
 

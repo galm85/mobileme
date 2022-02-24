@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'reference' => 'b9ad7a6fc6c6f0f03b855068459343dabc3f92ad',
+        'name' => '__root__',
+        'dev' => true,
+    ),
+    'versions' => array(
+        '__root__' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'reference' => 'b9ad7a6fc6c6f0f03b855068459343dabc3f92ad',
+            'dev_requirement' => false,
+        ),
+        'litipk/php-bignumbers' => array(
+            'pretty_version' => '0.8.6',
+            'version' => '0.8.6.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../litipk/php-bignumbers',
+            'aliases' => array(),
+            'reference' => '9b90b3282b36d32a22b194481fd05567144b56e8',
+            'dev_requirement' => false,
+        ),
+        'riesenia/cart' => array(
+            'pretty_version' => 'v3.0.1',
+            'version' => '3.0.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../riesenia/cart',
+            'aliases' => array(),
+            'reference' => '4afa4eee26ffb517b4f9ce5b03b4699f3031dd3b',
+            'dev_requirement' => false,
+        ),
+    ),
+);

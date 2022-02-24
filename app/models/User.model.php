@@ -1,6 +1,6 @@
 <?php
-
     
+
 
     class User extends Database{
 
@@ -58,6 +58,13 @@
         $valid = password_verify($password,$h_password);
         return $valid;
     }
+
+
+    
+
+
+
+   
 
     }
 

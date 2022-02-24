@@ -171,4 +171,15 @@
         return $this->view('pages/signin',self::$data);
     }
 
+
+
+    public function cart(){
+
+        
+        $cartModel = new Cart();
+        $cart = $cartModel->get_cart_content(4);
+        echo '<pre>';
+        print_r($cart);
+    }
+
  }

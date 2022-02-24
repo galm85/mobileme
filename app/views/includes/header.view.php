@@ -1,3 +1,10 @@
+<?php
+  if($user = Auth::get_user()){
+    $cartModel = new Cart();
+    $amount = $cartModel->getAmountItems($user->id);
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,11 +42,16 @@
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <li><a class="dropdown-item" href="#"><?=$user->first_name?></a></li>
           <li> <?= $user->is_admin ? "<a class=dropdown-item href=".ROOT."/admin>Admin Panel</a>" : '' ?></li>
+         <li>
+            <a href="<?=ROOT?>/cart" class="dropdown-item"> My cart( <span><?=$amount > 0 ? $amount : ''?> )</span>
+            </a>
+        </li> 
+        <hr>
           <li> <a class="dropdown-item" href="<?=ROOT?>/user/logout">logout</a></li>
         </ul>
       </div>
      
-      <!-- <a href="<?=ROOT?>/admin">Admin Panel</a> -->
+      
       
      
       <?php else:?>

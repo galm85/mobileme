@@ -76,7 +76,7 @@
                 <h3 class="font-bold" style="font-size:1.6rem; margin-top:10px">$<?=$product->price?></h3>
             <?php endif;?>
             <p class="font-light" style="font-size:1.4rem; margin-top:30px"><?=$product->summery?></p>
-            <button class="button is-info " style="margin-top:100px"><i class="fas fa-cart-plus"></i></button>
+            <button class="button is-info" id="addToCartBtn" data-id="<?=$product->id?>" style="margin-top:100px"><i class="fas fa-cart-plus"></i></button>
         </div>
 
     </div>

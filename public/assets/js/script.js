@@ -52,3 +52,20 @@ $('.deleteProduct').on('click',function(){
 })
 
 
+
+
+// add to cart
+$('#addToCartBtn').on('click',function(){
+   let id = $(this).data('id');
+
+   let product = {product_id:id,amount:1};
+   $.ajax({
+      url:'http://localhost/mobile-me/public/cart/add_item_to_cart',
+      type:'POST',
+      data:{product}
+   })
+  
+   
+
+})
+
