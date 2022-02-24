@@ -1,3 +1,4 @@
+//upload product image
 $('#uploadImageInput').on('change',()=>{
 
     let file = $('#uploadImageInput').prop('files')[0]
@@ -7,6 +8,22 @@ $('#uploadImageInput').on('change',()=>{
 
    reader.onload = (e)=>{
       $('#imageDisplay').html(`<img width="100%" src="${e.target.result}" />`);
+   }
+
+})
+
+
+
+// upload user image
+$('#uploadUserImageInput').on('change',()=>{
+
+    let file = $('#uploadUserImageInput').prop('files')[0]
+   
+   let reader = new FileReader();
+   reader.readAsDataURL(file);
+
+   reader.onload = (e)=>{
+      $('#user-image-upload').html(`<img width="100%" src="${e.target.result}" />`);
    }
 
 })

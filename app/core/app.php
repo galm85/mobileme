@@ -10,9 +10,10 @@
         public function __construct(){
             $url = $this->getUrl();
            
-        
+          
 
             if(file_exists("../app/controllers/".ucfirst($url[0])."Controller.php")){
+               
                 $this->controller = ucfirst($url[0]);
                 unset($url[0]);
             }

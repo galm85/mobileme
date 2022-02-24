@@ -6,6 +6,8 @@
 
     public function index(){
         $productModel = new Product();
+      
+     
 
         self::$data['title'] .= 'Home';
         self::$data['sales'] = $productModel->getSales();
@@ -91,5 +93,82 @@
 
     }
 
+
+    public function register(){
+        $user = Auth::get_user();
+        if($user){
+            return $this->redirect('');
+        }
+            $userModel = new User();
+            
+            if(isset($_POST['submit'])){
+              
+                $valid =  $userModel->validRegister($_POST);
+
+                if($valid){
+                    
+                    if(isset($_FILES['image'])){
+                
+                        $image = $userModel->upload_image($_FILES['image']);
+                        if($image){
+                           
+                            $_POST['image'] = $image;
+                        }else{
+                            $_POST['image'] = 'noImage.png';
+                            
+                        }
+                    }
+                    
+                    $_POST['password'] = $userModel->renderPassword($_POST['password']);
+                    $_POST['is_admin'] = 0;
+                    
+                    unset($_POST['submit']);
+                    unset($_POST['confirm']);
+
+                    $userModel->insert($_POST);
+                    $this->redirect('signin');
+               }
+            }
+
+          
+   
+   
+        self::$data['errors'] = $userModel->errors;    
+        self::$data['title'] .= 'Register';
+        return $this->view('pages/register',self::$data);
+
+    }
+    
+
+    public function signin(){
+
+        $user = Auth::get_user();
+        if($user){
+            return $this->redirect('');
+        }
+
+        $userModel = new User();
+        $errors = [];
+
+        if(isset($_POST['submit'])){
+          
+            if($user = $userModel->single('email',$_POST['email'])){
+                if($userModel->validatePassword($_POST['password'],$user->password)){
+                    unset($user->password);
+                    $_SESSION['USER'] = $user;
+                    $this->redirect('');
+                }
+
+            }else{
+                $errors['main'] = 'Wrong Email of Password';
+            }
+           
+            
+                
+        }
+        self::$data['title'] .= "Sign In";
+        self::$data['errors'] = $errors;
+        return $this->view('pages/signin',self::$data);
+    }
 
  }

@@ -26,4 +26,10 @@
             return $default;
         }
 
+
+        static public function kill($data){
+            echo '<pre>';
+            print_r($data);
+            die;
+        }
     }
