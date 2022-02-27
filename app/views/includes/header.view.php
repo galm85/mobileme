@@ -34,28 +34,31 @@
 <header>
   <div class="sign-in-bar">
     <?php if($user = Auth::get_user()):?>
-      <div class="dropdown me-5">
-        <a class=" dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="<?=ASSETS?>/images/users/<?=$user->image?>" width="50px" height="50px" style="border-radius: 50%;"  alt="user">
-        </a>
-        
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <li><a class="dropdown-item" href="#"><?=$user->first_name?></a></li>
-          <li> <?= $user->is_admin ? "<a class=dropdown-item href=".ROOT."/admin>Admin Panel</a>" : '' ?></li>
-         <li>
-            <a href="<?=ROOT?>/cart" class="dropdown-item"> My cart( <span><?=$amount > 0 ? $amount : ''?> )</span>
-            </a>
-        </li> 
-        <hr>
-          <li> <a class="dropdown-item" href="<?=ROOT?>/user/logout">logout</a></li>
-        </ul>
-      </div>
-     
-      
-      
-     
+       
+        <div class="dropdown user-drop">
+          
+          <a class=" " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="<?=ASSETS?>/images/users/<?=$user->image?>" width="50px" height="50px" style="border-radius: 50%;"  alt="user">
+          </a>
+          
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item" href="#"><?=$user->first_name?></a></li>
+            <li> <?= $user->is_admin ? "<a class=dropdown-item href=".ROOT."/admin>Admin Panel</a>" : '' ?></li>
+          <li>
+              <a href="<?=ROOT?>/cart" class="dropdown-item"> My cart( <span><?=$amount > 0 ? $amount : ''?> )</span>
+              </a>
+          </li> 
+          <hr>
+            <li> <a class="dropdown-item" href="<?=ROOT?>/user/logout">logout</a></li>
+          </ul>
+        </div>
+        <div class="cart me-5">
+          <a href="<?=ROOT?>/cart"><i style="font-size: 2rem;" class="fa-solid fa-cart-shopping"></i></a>
+          <p class="badge"><?=$amount > 0 ? $amount : ''?></p>
+
+        </div>
       <?php else:?>
-        <a href="<?=ROOT?>/signin">Sign-in</a>
+          <a href="<?=ROOT?>/signin">Sign-in</a>
       <?php endif;?>
     </div>
 

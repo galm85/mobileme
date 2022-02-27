@@ -62,10 +62,79 @@ $('#addToCartBtn').on('click',function(){
    $.ajax({
       url:'http://localhost/mobile-me/public/cart/add_item_to_cart',
       type:'POST',
-      data:{product}
+      data:{product},
+      success:function(res){
+         alert('Product add to cart');
+         window.location.reload();
+      }
    })
   
    
 
 })
 
+
+
+// update amount in cart
+$('.updateAmountBtn').on('click',function(){
+   let op = $(this).val();
+   let id = $(this).data('id');
+   
+   $.ajax({
+      url:'http://localhost/mobile-me/public/cart/update_amount_in_cart',
+      type:'POST',
+      data:{op,id},
+      success:function(res){
+         window.location.reload();
+      }
+   })
+
+})
+
+
+//remove item from cart
+$('.removeFromCartBtn').on('click',function(){  
+   if(window.confirm('Remove from Cart?')){
+
+      let id = $(this).data('id');
+     $.ajax({
+      url:'http://localhost/mobile-me/public/cart/remove_from_cart',
+      type:'POST',
+      data:{id},
+      success:function(res){
+         window.location.reload();
+      }
+      
+     })
+   }
+   
+
+})
+
+
+
+
+// new brand
+// $('#addBrandBtn').on('click',function(){
+
+//    alert('123');
+//    const formElement = $('#addBrandForm');
+//    console.log(formElement);
+//    let data = new FormData()
+
+//    // for(let i =0; i<formElement.length ; i++){
+//    //    data.append(formElement[i].name,formElement[i].value);
+//    //    console.log(formElement[i].value);
+//    // }
+
+//    // $.ajax({
+//    //    url:'http://localhost/mobile-me/public/admin/add_brand',
+//    //    type:'POST',
+//    //    data:{data},
+//    //    // success:function(res){
+//    //    //    window.location.reload();
+//    //    // }
+      
+//    //   })
+   
+// })

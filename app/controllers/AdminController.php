@@ -124,6 +124,84 @@
     }
  
     
+    public function brands(){
+
+        $brandModel = new Brand();
+        self::$data['brands'] = $brandModel->findAll();
+        self::$data['title'] .= 'Admin - Brands';
+        return $this->view('admin/brands',self::$data);
+        
+
+    }
     
 
+    public function new_brand(){
+
+        
+        self::$data['title'] .= 'Admin - Add new Brand';
+        return $this->view('admin/new-brand',self::$data);
+
+    }
+
+
+
+    public function add_brand(){
+        
+       
+        $errors =['title'=>"",'image'=>''];
+        $brandModel = new Brand();
+
+        if(!empty($_POST['title'])){
+            $title = $_POST['title'];
+        }else{
+            $errors['title'] = 'Please insert Brand Name';
+        }
+
+
+        if(isset($_FILES['image'])){
+            $image = $brandModel->upload_image($_FILES['image']);  
+            if(!$image){
+                $errors['image'] = 'Please Select Brand Image';
+            }
+        }
+
+
+        if( empty($errors['title'])  &&  empty($errors['image'])){
+            $data = ['title'=>$title,'image'=>$image];
+            $check = $brandModel->insert($data);
+            if($check){
+              $response = new stdClass();
+              $response->status = true;
+              $response->message = 'Brand Saved';
+              echo json_encode($response);
+            }
+
+        }else{
+            $response = new stdClass();
+            $response->status = false;
+            $response->errors = $errors;
+            echo json_encode($response);
+
+        }
+
+        
+    }
+
+
+
+    public function delete_brand(){
+        
+        if(isset($_POST['id'])){
+            $id = $_POST['id'];
+            $brandModel = new Brand();
+
+            $sql = "DELETE FROM brands WHERE id=:id";
+            $res = $brandModel->query($sql,['id'=>$id],'delete');
+            if($res){
+                echo 'Brand Deleted';
+            }else{
+                echo 'Brand did NOT delete';
+            }
+        }
+    }
 }
