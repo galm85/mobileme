@@ -204,4 +204,50 @@
             }
         }
     }
+
+
+
+
+    public function orders(){
+
+        $orderModel = new Order();
+       
+        self::$data['orders']= $orderModel->findAll(); 
+        self::$data['title'] .= "Admin - Orders";
+        return $this->view('admin/orders');
+
+    }
+
+
+    public function edit_Order($order_id){
+       
+        $orderModel = new Order();
+        $order = $orderModel->single('id',$order_id);
+        if(!$order){
+            return $this->redirect('admin/orders');
+        }
+       
+        $order->order_details = unserialize($order->order_details);
+        
+        self::$data['order'] = $order;
+        self::$data['title'] .= 'Admin - Order';
+        $this->view('admin/single-order',self::$data);
+    }
+
+
+    public function change_status(){
+        
+        $orderModel = new Order();
+        $status = $_POST['status'];
+        $order_id = $_POST['id'];
+
+        $sql = "UPDATE orders SET status = '$status' WHERE id= $order_id ";
+
+        $res = $orderModel->query($sql,[],'update');
+        
+        echo $res;
+
+    }
+
+
 }

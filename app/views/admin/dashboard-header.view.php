@@ -50,6 +50,7 @@
                 <a href="<?=ROOT?>/admin/new_product">Add New Prodcut</a>
                 <a href="<?=ROOT?>/admin/brands">Brands</a>
                 <a href="<?=ROOT?>/admin/categories">Categories</a>
+                <a href="<?=ROOT?>/admin/orders">Orders</a>
             </div>
             <div class="col-10">
 
