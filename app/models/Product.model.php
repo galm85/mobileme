@@ -101,6 +101,22 @@
             return $products;
 
         }
+
+
+        public function getAllWatches(){
+
+            $sql = "SELECT p.*,b.title as brand_title FROM products p LEFT JOIN brands b ON b.id = p.brand_id WHERE p.categorie_id = 2";
+            $products = $this->query($sql);
+            return $products;
+
+        }
+
+        public function getAllWatchesByBrand($brand){
+            $sql = "SELECT p.*,b.title as brand_title FROM products p LEFT JOIN brands b On p.brand_id = b.id WHERE p.categorie_id = 2 AND b.title ='$brand'";
+            $products = $this->query($sql);
+            return $products;
+
+        }
         
         
         public function getAllAccessories(){

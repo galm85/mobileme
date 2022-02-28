@@ -9,6 +9,7 @@
             justify-content: space-between;
             width:60%;
             margin: 50px auto;
+           
         }
 
         .single-product-image{
@@ -38,6 +39,7 @@
         .single-product-image img{
             width: 100%;
             object-fit: cover;
+            cursor: pointer;
         }
 
        
@@ -55,6 +57,27 @@
         .single-product-article p{
             font-size: 1.3rem;
         }
+
+
+        #modalImage{
+            position: absolute;
+            top: 10vh;
+            left: 50%;
+            transform: translate(-50%, -200%);
+            z-index: 10;
+            width: 70%;
+            height: 80%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all ease 0.3s;
+        }
+
+        #image{
+            height: 90%;
+            margin-top:2.5%;
+        }
     </style>
 
   
@@ -64,7 +87,7 @@
             <?php if($product->on_sale):?>
             <div class="on-sale font-black">ON <br/>SALE</div>
             <?php endif;?>
-            <img src="<?=ASSETS?>/images/products/<?=$product->main_image?>" alt="">
+            <img id="product_image" src="<?=ASSETS?>/images/products/<?=$product->main_image?>" alt="">
         </div>
         
         <div class="single-product-data">
@@ -79,21 +102,42 @@
             <button class="button is-info" id="addToCartBtn" data-id="<?=$product->id?>" style="margin-top:100px"><i class="fas fa-cart-plus"></i></button>
         </div>
 
+
+       
     </div>
+    
     <a href="<?=ROOT?>/smartphones">
         <button class="button is-danger" style="position:absolute;top:15vh;right:20%">Go Back</button>
     </a>
+    
     <hr>
+    
     <div class="single-product-article">
-    <p><?=$product->article?></p>
+        <p><?=$product->article?></p>
+    </div>
+
+    <div id="modalImage" >
+            <img src="<?=ASSETS?>/images/products/<?=$product->main_image?>" id="image"   alt="">
     </div>
 
 
 
 
 
-<?php
-    $this->view('includes/footer');    
+<?php $this->view('includes/footer');?>
 
-?>
+<script>
+   
+    $('#product_image').on('click',()=>{
+       
+        $('#modalImage').css({'transform': 'translate(-50%, 0)'});
+        
+    })
 
+
+    $('#modalImage').on('click',()=>{
+        
+        $('#modalImage').css({'transform': 'translate(-50%,-200%)'});
+    })
+
+</script>

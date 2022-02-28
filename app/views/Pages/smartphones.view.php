@@ -32,7 +32,7 @@
   <div class="main-banner">
     <img src="<?=ASSETS?>/images/mainBanner.png"  alt="iphone 13 banner">
     <div class="banner-data">
-      <h1 class="main-title">SmartPhones & Accessories</h1>
+      <h1 class="main-title">SmartPhones</h1>
     </div>
   </div>
 

@@ -43,14 +43,27 @@
     }
 
 
-    public function watches(){
+    public function watches($brand=null,$item=null){
         $brandModel = new Brand();
         $product = new Product();
 
-        self::$data['products'] = $product->where('categorie_id',2);
+        if(isset($item)){
+            
+            self::$data['header'] = strtoupper(str_replace('-',' ',$item));
+            self::$data['product'] = $product->single('title',str_replace('-',' ',$item)); 
+            self::$data['title'] .= str_replace('-',' ',$item);
+
+           return $this->view('pages/singleProduct',self::$data);
+        }
+
+        if(!$brand){
+            self::$data['products'] = $product->getAllWatches();
+        }else{   
+            self::$data['products'] = $product->getAllWatchesByBrand($brand);
+        }
         self::$data['brands'] = $brandModel->findAll();
 
-        self::$data['title'] .= 'Watches & Headsets';
+        self::$data['title'] .= 'Watches';
         $this->view('pages/watches',self::$data);
     }
 

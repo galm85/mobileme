@@ -18,11 +18,15 @@
   .banner-data{
     position:absolute;
     top:50%;
-    left:10%;
+    left:30%;
     font-size: 3rem;
     transform:translateY(-50%);
     display: flex;
     align-items: center;
+  }
+
+  .banner-data h1{
+    
   }
 
   
@@ -32,7 +36,7 @@
   <div class="main-banner">
     <img src="<?=ASSETS?>/images/accessoriesBanner.png"  alt="iphone 13 banner">
     <div class="banner-data">
-      <h1 class="main-title">Accessories</h1>
+      <h1 class="main-title text-light display-1 fw-bold">Accessories</h1>
     </div>
   </div>
 
@@ -41,27 +45,28 @@
     
       <div class="row mt-5">
         
-        <div class="col-2">
-            <h3>Select Brand</h3>
-            <div><a href="<?=ROOT?>/accessories">ALL</a> </div>
+        <div class="col-2 border-end">
+            <h3 class="text-center">Select Brand</h3>
+            <hr>
+            <div class="brand-filter"><a href="<?=ROOT?>/accessories" >ALL</a> </div>
             <?php foreach($brands as $brand):?>
-              <div>
+              <div class="brand-filter">
                 <a href="<?=ROOT?>/accessories/<?=$brand->title?>">
-                  <img src="<?=ASSETS?>/images/brands/<?=$brand->image?>" width="50px" alt="">  
+                  <img src="<?=ASSETS?>/images/brands/<?=$brand->image?>" alt="">  
                 </a> 
               </div>
               <?php endforeach;?>
         </div>
        
 
-        <div class="col-10">
+        <div class="col-10 ps-5">
             <div class="row justify-space-between">
                 <?php if(count($products) > 0): ?>
                   <?php foreach($products as $row):?>
                     <div class="col-md-2 product-card  p-0">
                         
                         <div class="product-image">
-                          <a href="<?=ROOT?>/smartphones/<?=str_replace(' ','-',strtolower($row->brand_title))?>/<?=str_replace(' ','-',strtolower($row->title))?>/">
+                          <a href="<?=ROOT?>/watches/<?=str_replace(' ','-',strtolower($row->brand_title))?>/<?=str_replace(' ','-',strtolower($row->title))?>/">
                             <img src="<?=ASSETS?>/images/products/<?=$row->main_image?>"  alt="">
                           </a>
                         </div>
