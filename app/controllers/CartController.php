@@ -16,11 +16,12 @@
         $cartModel = new Cart();
         $cart = $cartModel->single('user_id',$user->id);
 
-        $items = unserialize($cart->items);
-        
-        self::$data['total_price'] = $this->getTotalPrice($items);
-        self::$data['amount'] = $cartModel->getAmountItems($user->id);
-        self::$data['products'] = $this->getProductsData($items);
+        if($cart){
+            $items = unserialize($cart->items);
+            self::$data['total_price'] = $this->getTotalPrice($items);
+            self::$data['amount'] = $cartModel->getAmountItems($user->id);
+            self::$data['products'] = $this->getProductsData($items);
+        }
         self::$data['title'] .= 'Cart';
       
          $this->view('pages/cart',self::$data);
@@ -117,6 +118,11 @@
     }
 
 
+    public function payment(){
+
+        self::$data['title'] .= 'Payment';
+        return $this->view('pages/payment',self::$data);
+    }
 
 
     // privates
@@ -154,4 +160,6 @@
  
 
   
+    
+
  }

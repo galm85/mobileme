@@ -182,4 +182,9 @@
         print_r($cart);
     }
 
+
+    public function thank(){
+        self::$data['title'] .= 'Thank You';
+        return $this->view('pages/thank');
+    }
  }

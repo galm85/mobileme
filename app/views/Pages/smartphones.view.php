@@ -41,20 +41,21 @@
     
       <div class="row mt-5">
         
-        <div class="col-2">
-            <h3>Select Brand</h3>
-            <div><a href="<?=ROOT?>/smartphones">ALL</a> </div>
+        <div class="col-2 border-end">
+            <h3 class="text-center">Select Brand</h3>
+            <hr>
+            <div class="brand-filter"><a href="<?=ROOT?>/smartphones" >ALL</a> </div>
             <?php foreach($brands as $brand):?>
-              <div>
+              <div class="brand-filter">
                 <a href="<?=ROOT?>/smartphones/<?=$brand->title?>">
-                  <img src="<?=ASSETS?>/images/brands/<?=$brand->image?>" width="50px" alt="">  
+                  <img src="<?=ASSETS?>/images/brands/<?=$brand->image?>" alt="">  
                 </a> 
               </div>
               <?php endforeach;?>
         </div>
        
 
-        <div class="col-10">
+        <div class="col-10 ps-5">
             <div class="row justify-space-between">
                 <?php if(count($products) > 0): ?>
                   <?php foreach($products as $row):?>

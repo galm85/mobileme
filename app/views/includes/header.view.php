@@ -32,43 +32,43 @@
 <body>
   
 <header>
-  <div class="sign-in-bar">
-    <?php if($user = Auth::get_user()):?>
-       
-        <div class="dropdown user-drop">
-          
-          <a class=" " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="<?=ASSETS?>/images/users/<?=$user->image?>" width="50px" height="50px" style="border-radius: 50%;"  alt="user">
-          </a>
-          
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <li><a class="dropdown-item" href="#"><?=$user->first_name?></a></li>
-            <li> <?= $user->is_admin ? "<a class=dropdown-item href=".ROOT."/admin>Admin Panel</a>" : '' ?></li>
-          <li>
-              <a href="<?=ROOT?>/cart" class="dropdown-item"> My cart( <span><?=$amount > 0 ? $amount : ''?> )</span>
-              </a>
-          </li> 
-          <hr>
-            <li> <a class="dropdown-item" href="<?=ROOT?>/user/logout">logout</a></li>
-          </ul>
-        </div>
-        <div class="cart me-5">
-          <a href="<?=ROOT?>/cart"><i style="font-size: 2rem;" class="fa-solid fa-cart-shopping"></i></a>
-          <p class="badge"><?=$amount > 0 ? $amount : ''?></p>
+    <div class="sign-in-bar">
+      <a href="<?=ROOT?>" class="logo">
+        <img  src="<?=ASSETS?>/images/logo.png" alt="mobile me logo">
+      </a>
+      <?php if($user = Auth::get_user()):?>
+        
+          <div class="dropdown user-drop">
+            
+            <a class=" " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="<?=ASSETS?>/images/users/<?=$user->image?>" width="50px" height="50px" style="border-radius: 50%;"  alt="user">
+            </a>
+            
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li><a class="dropdown-item" href="#"><?=$user->first_name?></a></li>
+              <li> <?= $user->is_admin ? "<a class=dropdown-item href=".ROOT."/admin>Admin Panel</a>" : '' ?></li>
+            <li>
+                <a href="<?=ROOT?>/cart" class="dropdown-item"> My cart( <span><?=$amount > 0 ? $amount : ''?> )</span>
+                </a>
+            </li> 
+            <hr>
+              <li> <a class="dropdown-item" href="<?=ROOT?>/user/logout">logout</a></li>
+            </ul>
+          </div>
+          <div class="cart me-5">
+            <a href="<?=ROOT?>/cart"><i style="font-size: 2rem;" class="fa-solid fa-cart-shopping cart-logo"></i></a>
+            <p class="badge"><?=$amount > 0 ? $amount : ''?></p>
 
-        </div>
-      <?php else:?>
-          <a href="<?=ROOT?>/signin">Sign-in</a>
-      <?php endif;?>
+          </div>
+        <?php else:?>
+            <a href="<?=ROOT?>/signin">Sign-in</a>
+        <?php endif;?>
     </div>
 
 
     <nav class="navbar my-navbar " role="navigation" aria-label="main navigation">
+      
       <div class="navbar-brand">
-        <a class="navbar-item" href="<?=ROOT?>">
-          <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-        </a>
-
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -78,63 +78,17 @@
 
       <div id="navbarBasicExample" class="navbar-menu ">
         <div class="navbar-start my-links">
-          <a href="<?=ROOT?>/smartphones" class="navbar-item">
-            SmartPhones
-          </a>
-
-          <a href="<?=ROOT?>/watches" class="navbar-item">
-            Watches
-          </a>
-
-          <a href="<?=ROOT?>/accessories" class="navbar-item">
-            Accessories
-          </a>
-
-          <a href="<?=ROOT?>/sales" class="navbar-item">
-            Sales
-          </a>
-          <a class="navbar-item">
-            New
-          </a>
-
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a href="<?=ROOT?>/watches" class="navbar-link">
-              Headsets and Watches
-            </a>
-
-            <div class="navbar-dropdown">
-              <a class="navbar-item">
-                Computers & Tablets
-              </a>
-              <a class="navbar-item">
-                Accessories
-              </a>
-              <a class="navbar-item">
-                Contact
-              </a>
-              <hr class="navbar-divider">
-              <a class="navbar-item">
-                Report an issue
-              </a>
-            </div>
-          </div>
+          <a href="<?=ROOT?>/smartphones" class="navbar-item">SmartPhones</a>
+          <a href="<?=ROOT?>/watches" class="navbar-item">Watches</a>
+          <a href="<?=ROOT?>/accessories" class="navbar-item">Accessories</a>
+          <a href="<?=ROOT?>/sales" class="navbar-item">Sales</a>
+          <a class="navbar-item">New</a> 
         </div>
-
-        <!-- <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="buttons">
-              <a class="button is-primary">
-                <strong>Sign up</strong>
-              </a>
-              <a class="button is-light">
-                Log in
-              </a>
-            </div>
-          </div>
-        </div> -->
       </div>
+
     </nav>
-    </header>
+
+</header>
 
     <main class="main">
      

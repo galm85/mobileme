@@ -30,7 +30,7 @@
 
 
   <div class="main-banner">
-    <img src="<?=ASSETS?>/images/mainBanner.png"  alt="iphone 13 banner">
+    <img src="<?=ASSETS?>/images/accessoriesBanner.png"  alt="iphone 13 banner">
     <div class="banner-data">
       <h1 class="main-title">Accessories</h1>
     </div>

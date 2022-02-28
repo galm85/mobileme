@@ -61,7 +61,7 @@
     <div class="single-product-container">
         
         <div class="single-product-image">
-            <?php if(!$product->on_sale):?>
+            <?php if($product->on_sale):?>
             <div class="on-sale font-black">ON <br/>SALE</div>
             <?php endif;?>
             <img src="<?=ASSETS?>/images/products/<?=$product->main_image?>" alt="">
@@ -69,7 +69,7 @@
         
         <div class="single-product-data">
             <h1 style="font-size:3rem;" class="font-black"><?=$product->title?></h1>
-            <?php if(!$product->on_sale):?>
+            <?php if($product->on_sale):?>
                 <h3 class="font-bold" style="font-size:1.6rem; margin-top:10px;text-decoration: line-through;">$<?=$product->price?></h3>
                 <h3 class="font-bold" style="font-size:1.6rem; margin-top:10px;">$<?=$product->sale_price?></h3>
             <?php else:?>

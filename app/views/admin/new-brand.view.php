@@ -90,7 +90,7 @@
                             alert(response.message);
                             window.location = "<?=ROOT?>/admin/brands";
                         }else{
-                            console.log(response.errors);
+                           
                             $('#brandTitleError').html(response.errors.title);
                             $('#brandImageError').html(response.errors.image);
                         }
