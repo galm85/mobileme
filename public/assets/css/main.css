@@ -87,8 +87,9 @@
 
 
 
+/* ============== Top Bar ================= */
 
-.sign-in-bar{
+.top-bar{
     width: 100%;
     height: 70px;
     background:var(--main-color);
@@ -100,8 +101,8 @@
     
 }
 
-.sign-in-bar a{
-    color:aliceblue;
+.top-bar .user-drop a{
+    color:var(--main-color);
     font-family: var(--main-font);
     font-size: 1.2rem;
     text-decoration: none;
@@ -110,10 +111,7 @@
 
 }
 
-.sign-in-bar a:hover{
-    color:rgb(147, 226, 43);
 
-}
 
 #sideMenuBtn{
     background: none;
