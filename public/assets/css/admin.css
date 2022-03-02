@@ -1,3 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+:root{
+    --main-font: 'Lato', 'sans-serif';
+    --main-color:#04598f;
+    --purpel:#5F41B2;
+    --gray:#EBEEF2;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+}
+
+body{
+    font-family: var(--main-font);
+}
+
+
+
+
 .admin-nav{
     display: flex;
     flex-direction: column;
@@ -9,10 +33,87 @@
 .admin-nav a{
     display: block;
     text-decoration: none;
-    width: 100%;
-    background-color: antiquewhite;
-    height: 50px;
-    padding: 10px 20px;
-    font-size: 1.2rem;
+    width: 80%;
+    height: 40px;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 16px;
+    margin: 5px auto;
+    color: black;
+    font-weight: 300;
 
 }
+
+.admin-nav a:hover{
+    background-color: var(--gray);
+    color: var(--purpel);
+    font-weight: 400;
+}
+
+
+
+/* dashboard */
+.dash-item-link{
+    display: block;
+    text-decoration: none;
+    display: flex;
+    height: 100px;
+    justify-content: left;
+    align-items: center;
+    background-color: white;
+    padding-left: 50px;
+    max-width: 300px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.dash-item-link h6{
+    font-weight: 300;
+    font-size: 20px;
+    color: rgb(110, 109, 109);
+    margin: 0;
+}
+.dash-item-link h3{
+    font-weight: 900;
+    font-size: 50px;
+    margin-top: 0;
+    color: black;
+}
+
+
+
+
+
+
+/* users */
+#orderModel{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 90%;
+    z-index: 5;
+    top: 5%;
+    left: 5%;
+    padding: 10%;
+    transform: translateX(-200%);
+    opacity: 0;
+    transition: all ease 0.2s;
+    overflow: scroll;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.315);
+
+}
+
+
+
+
+
+
+#closeModel{
+   z-index: 5;
+}
+
+

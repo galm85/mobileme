@@ -125,8 +125,8 @@
                 <!-- Actions -->
                 <div class="row my-5">
                     <div class="col-12 d-flex justify-content-around">
-                        <button class="button is-danger" type="button">Cancel</button>
-                        <button class="button is-info" type="submit" name="submit">Save</button>
+                        <a href="<?=ROOT?>/admin/products" class="button is-danger" style="text-decoration: none;" type="button">Cancel</a>
+                        <button class="button is-info"  type="submit" name="submit">Save</button>
                     </div>
                 </div>
 

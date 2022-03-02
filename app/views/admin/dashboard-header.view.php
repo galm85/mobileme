@@ -26,7 +26,7 @@
 <body>
 
     <header class="d-flex flex-wrap justify-content-center py-3 border-bottom">
-      <a href="<?=ROOT?>" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+      <a href="<?=ROOT?>/admin" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
         <span class="fs-4">Admin Panel</span>
       </a>
@@ -43,17 +43,17 @@
 
 
 
-    <div class="container-fluid">
+    <div class="container-fluid ">
         <div class="row p-0">
-            <div class="col-2 p-0  admin-nav">
+            <div class="col-1 p-0  admin-nav">
                 <a href="<?=ROOT?>/admin/products">Prodcuts</a>
-                <a href="<?=ROOT?>/admin/new_product">Add New Prodcut</a>
                 <a href="<?=ROOT?>/admin/brands">Brands</a>
                 <a href="<?=ROOT?>/admin/categories">Categories</a>
                 <a href="<?=ROOT?>/admin/orders">Orders</a>
             </div>
-            <div class="col-10">
+            <div class="col-11 m-0 p-0">
 
+             
 
 
 

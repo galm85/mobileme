@@ -5,8 +5,20 @@
 
 
     public function index(){
-        self::$data['title'] .= 'Admin Panel';
         
+        $productModel = new Product();
+        $ordersModel = new Order();
+        $categoryModel = new Category();
+        $brandModel = new Brand();
+        $userModel = new User();
+        
+        self::$data['categories'] = $categoryModel->findAll();
+        self::$data['brands'] = $brandModel->findAll();
+        self::$data['users'] = $userModel->where('is_admin',0);
+        self::$data['user'] = Auth::get_user();
+        self::$data['products'] = $productModel->findAll();
+        self::$data['orders'] = $ordersModel->where('status','new');
+        self::$data['title'] .= 'Admin Panel';
         
         $this->view('admin/dashboard',self::$data);
     }
@@ -250,4 +262,14 @@
     }
 
 
+
+
+    public function users(){
+        
+        $userModel = new User();
+
+        self::$data['users'] = $userModel->query("SELECT * FROM users ORDER BY last_name ASC",[]);
+        self::$data['title'] .= 'Admin - Users';
+        return $this->view('admin/users',self::$data);
+    }
 }

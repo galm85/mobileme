@@ -54,7 +54,23 @@
     }
 
 
-    
+    public function get_user_orders($user_id){
+       
+        $orderModel = new Order();
+        $userModel = new User();
+
+        $orders = $orderModel->where('user_id',$user_id,true);
+        $user = $userModel->single('id',$user_id);
+
+        foreach($orders as $order){
+            $order->order_details = unserialize($order->order_details);
+        }
+        $data = new stdClass();
+        $data->orders = $orders;
+        $data->user = $user;
+        echo json_encode($data);
+
+    }
   
     
  

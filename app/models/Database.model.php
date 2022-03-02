@@ -61,9 +61,15 @@
         }
 
 
-        public function where($column,$value){
+        public function where($column,$value,$order=null){
             // $column = addslashes($column);
-            $query = "SELECT * FROM $this->table WHERE $column = :value";
+            if($order){
+                $query = "SELECT * FROM $this->table WHERE $column = :value ORDER BY created_at DESC";
+
+            }else{
+                $query = "SELECT * FROM $this->table WHERE $column = :value";
+
+            }
             $data = $this->query($query,['value'=>$value]);
             return $data;
         }

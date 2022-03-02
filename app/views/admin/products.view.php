@@ -2,7 +2,7 @@
 
 
 
-<div class="contianer">
+<div class="contianer ">
     <div class="row">
         <div class="col-11">
             <h1 class="text-center display-5 my-4">Products</h1>
@@ -11,7 +11,8 @@
 
 
     <div class="row">
-        <div class="col-4">
+        <div class="col-md-11 d-flex justify-content-between ">
+            <a class="btn btn-primary" href="<?=ROOT?>/admin/new_product">Add New Prodcut</a>
             <form action="" method="post">
                 <select name=filter class="form-select" onChange="this.form.submit()" >
                     <option value="">All</option>
@@ -19,13 +20,16 @@
                         <option  value=<?=$row->id?> <?=Helpers::get_old_select('filter',$row->id)?> > <?=$row->title?> </option>
                     <?php endforeach;?>
                 </select>
+                
             </form>
+
         </div>
+       
     </div>
 
 
 
-<hr class="my-5">
+    <hr class="my-5">
     <div class="row">
         <div class="col-11">
             <table class="table">
