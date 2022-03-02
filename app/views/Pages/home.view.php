@@ -43,16 +43,32 @@
   <section class="best-cells">
     <div class="container">
       
+     
+
+      <div class="row my-5 justify-content-between">
+        <?php if($sales):?>
+          <?php foreach($sales as $item):?>
+            <div class="col-2 mx-1">
+                <a href="">
+                  <img src="<?=ASSETS?>/images/products/<?=$item->main_image?>" width="100%"  alt="">
+                </a>
+            </div>
+          <?php endforeach;?>
+        <?php endif;?>
+      </div>
+
+
+
       <div class="row mt-5">
         <div class="col-12">
-          <h2 class="display-5 text-center">Best Sales</h2>
+          <h2 class="display-5 text-center text-primary">Explore Best Sales</h2>
         </div>
       </div>
 
-      <div class="row mt-5 justify-content-between">
+      <div class="row my-5 justify-content-between bg-light">
         <?php if($sales):?>
           <?php foreach($sales as $item):?>
-            <div class="col-3 mx-1">
+            <div class="col-2 mx-1">
                 <a href="">
                   <img src="<?=ASSETS?>/images/products/<?=$item->main_image?>" width="100%"  alt="">
                 </a>

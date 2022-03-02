@@ -81,7 +81,7 @@
 
         public function getSales(){
 
-            $sql = "SELECT * FROM products WHERE on_sale = 1";
+            $sql = "SELECT * FROM products WHERE on_sale = 1 AND categorie_id = 1 LIMIT 5";
             $products = $this->query($sql);
             return $products;
         }

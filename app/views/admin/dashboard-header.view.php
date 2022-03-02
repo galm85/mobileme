@@ -50,6 +50,7 @@
                 <a href="<?=ROOT?>/admin/brands">Brands</a>
                 <a href="<?=ROOT?>/admin/categories">Categories</a>
                 <a href="<?=ROOT?>/admin/orders">Orders</a>
+                <a href="<?=ROOT?>/admin/users">Users</a>
             </div>
             <div class="col-11 m-0 p-0">
 
