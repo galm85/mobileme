@@ -59,6 +59,9 @@
 
       <div>
         <?php if($user): ?>
+          
+
+
           <div class="dropdown user-drop">
               <a class=" " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="<?=ASSETS?>/images/users/<?=$user->image?>" width="50px" height="50px" style="border-radius: 50%;"  alt="user">
