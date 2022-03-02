@@ -175,6 +175,22 @@ $('#payment_form').submit(function(e){
 })
 
 
+// SIDE MENU
+
+$('#sideMenuBtn').on('click',()=>{
+   $('.side-menu-container').css('transform','translateY(0)');
+   $('.side-menu-container').css('opacity',1);
+  
+
+   
+})   
+
+$('.side-menu-container').on('click',()=>{
+   $('.side-menu-container').css('transform','translateY(-200%)');
+   $('.side-menu-container').css('opacity',0);
+})
+
+
 
 
 

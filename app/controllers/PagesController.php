@@ -6,9 +6,9 @@
 
     public function index(){
         $productModel = new Product();
-      
-     
-
+        
+        
+        self::$data['user']= Auth::get_user();
         self::$data['title'] .= 'Home';
         self::$data['sales'] = $productModel->getSales();
         $this->view('pages/home',self::$data);
