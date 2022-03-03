@@ -54,42 +54,47 @@
     <div class="top-bar">
       <div class="d-flex ms-5 align-items-center">
         <button id="sideMenuBtn" class="me-5"><i class="fa-solid fa-bars"></i></button>
-        <h2 class="text-light">MOBILE ME</h2>
+        <a id="mobile-me-logo" href="<?=ROOT?>/">MobileMe</a>
+        <!-- <a id="mobile-me-logo" href="<?=ROOT?>/"><img class="mt-2" src="<?=ASSETS?>/images/logo.png" width="200px" alt="mobile me logo"></a> -->
       </div>
 
       <div>
         <?php if($user): ?>
-          
+          <div class="d-flex align-items-center pe-4">
+         
+              <div class="cart me-4 mt-2">
+                  <a href="<?=ROOT?>/cart"><i style="font-size: 2rem;" class="fa-solid fa-cart-shopping cart-logo"></i></a>
+                  <p class="badge"><?=$amount > 0 ? $amount : ''?></p>
+              </div>
+   
+              <div class="dropdown user-drop">
+                  <a class=" " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img  src="<?=ASSETS?>/images/users/<?=$user->image?>" width="50px" height="50px" style="border-radius: 50%;"  alt="user">
+                  </a>
 
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="<?=ROOT?>/user"><?=$user->first_name?></a></li>
+                    <li> <?= $user->is_admin ? "<a class=dropdown-item href=".ROOT."/admin>Admin Panel</a>" : '' ?></li>
+                    <li><a href="<?=ROOT?>/cart" class="dropdown-item"> My cart( <span><?=$amount > 0 ? $amount : '0'?> )</span></a></li> 
+                    <hr>
+                    <li> <a class="dropdown-item" href="<?=ROOT?>/user/logout">logout</a></li>
+                  </ul>
+              </div>
 
-          <div class="dropdown user-drop">
-              <a class=" " href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="<?=ASSETS?>/images/users/<?=$user->image?>" width="50px" height="50px" style="border-radius: 50%;"  alt="user">
-              </a>
-            
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <li><a class="dropdown-item" href="<?=ROOT?>/user"><?=$user->first_name?></a></li>
-              <li> <?= $user->is_admin ? "<a class=dropdown-item href=".ROOT."/admin>Admin Panel</a>" : '' ?></li>
-              <li><a href="<?=ROOT?>/cart" class="dropdown-item"> My cart( <span><?=$amount > 0 ? $amount : '0'?> )</span></a></li> 
-            
-              <hr>
-              
-              <li> <a class="dropdown-item" href="<?=ROOT?>/user/logout">logout</a></li>
-            </ul>
-
-        </div>
-
+          </div>
 
         <?php else: ?>
           <a href="<?=ROOT?>/signin">Sign In</a>
         <?php endif; ?>
+
       </div>
 
-       
-      </div>
-
+      
+    </div>
+        
 
 </header>
+
 
     <main class="main">
      

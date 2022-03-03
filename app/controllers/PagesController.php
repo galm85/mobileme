@@ -11,6 +11,7 @@
         
         self::$data['title'] .= 'Home';
         self::$data['sales'] = $productModel->getSales();
+        self::$data['new'] = $productModel->getNew();
         $this->view('pages/home',self::$data);
     }
 

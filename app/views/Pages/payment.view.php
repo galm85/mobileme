@@ -1,6 +1,6 @@
 <?php $this->view('includes/header');?>
 
-    <div class="container">
+    <div class="container bg-light" style="margin-top: 120px;">
         
         <div class="row">
             <div class="col-12">

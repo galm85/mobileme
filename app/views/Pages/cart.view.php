@@ -4,7 +4,7 @@
 
 ?>
 
-<div class="container">
+<div class="container" style="margin-top: 100px;">
 <?php if(isset($products) && count($products) > 0):?>
     <div class="row">
         <div class="col-12">

@@ -81,7 +81,13 @@
 
         public function getSales(){
 
-            $sql = "SELECT * FROM products WHERE on_sale = 1 AND categorie_id = 1 LIMIT 5";
+            $sql = "SELECT p.*,b.title as brand_title FROM products p LEFT JOIN brands b ON b.id = p.brand_id WHERE p.categorie_id = 1 AND p.on_sale = 1 LIMIT 5";
+            $products = $this->query($sql);
+            return $products;
+        }
+        public function getNew(){
+
+            $sql = "SELECT p.*,b.title as brand_title FROM products p LEFT JOIN brands b ON b.id = p.brand_id WHERE p.categorie_id = 1 ORDER BY created_at DESC LIMIT 5";
             $products = $this->query($sql);
             return $products;
         }
@@ -94,6 +100,8 @@
             return $products;
 
         }
+
+        
 
         public function getAllSamerphonesByBrand($brand){
             $sql = "SELECT p.*,b.title as brand_title FROM products p LEFT JOIN brands b On p.brand_id = b.id WHERE p.categorie_id = 1 AND b.title ='$brand'";

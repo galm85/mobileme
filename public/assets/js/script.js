@@ -193,5 +193,35 @@ $('.side-menu-container').on('click',()=>{
 
 
 
+$(document).ready((event)=>{
+   $('#sales-phones-div').css('transform',`translateX(0)`);
+})
 
 
+$(window).scroll( (event)=> {
+   let scroll = $(window).scrollTop();
+   if(scroll > 70){
+      $('.top-bar').css('background','rgb(4, 89, 143)');
+      $('#sideMenuBtn').css('color','white');
+      $('#mobile-me-logo').css('color','white');
+      $('.top-bar').css('box-shadow','2px 2px 5px black');
+      
+      
+   }else{
+      $('.top-bar').css('background','none');
+      $('#sideMenuBtn').css('color','var(--main-color)');
+      $('#mobile-me-logo').css('color','var(--main-color)');
+      $('.top-bar').css('box-shadow','none');
+   }
+
+   if(scroll > 350){
+      $('#new-phones-div').css('transform',`translateX(0)`);
+   }
+
+   if(scroll > 1000){
+      $('#news-letter-container').css('transform',`translateX(0)`);
+   }
+
+
+  
+});
