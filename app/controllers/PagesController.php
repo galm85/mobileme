@@ -201,4 +201,19 @@
         self::$data['title'] .= 'Thank You';
         return $this->view('pages/thank');
     }
+
+
+
+
+
+    public function iphone_13(){
+        $productModel= new Product();
+        
+        self::$data['products'] = $productModel -> query("SELECT * FROM products WHERE title LIKE '%iphone 13%' ");
+        self::$data['title'] .= 'Iphone 13';
+        $this->view('pages/mainSale',self::$data);
+
+
+       
+    }
  }

@@ -267,6 +267,41 @@
     transform: scale(1.05);
 }
 
+#news-letter-container h3{
+    font-size: 4rem;
+    color: var(--main-color);
+}
+
+#news-letter-container h5{
+    font-size: 2rem;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+#newsLetterNote{
+    position: fixed;
+    z-index: 20;
+    top:100px;
+    right: 100px;
+    width: 500px;
+    padding: 10px;
+    padding-top: 20px;
+    box-shadow: 2px 2px 5px black;
+    transform: translateX(150%);
+    transition: all ease 0.2s;
+}
+
+.closeNote{
+    width: 20px;
+    height: 20px;
+    background: none;
+    border: none;
+    color: red;
+    font-weight: 900;
+}
+
+
+
 
 
 
@@ -483,3 +518,41 @@ font-weight: 300;
     height: 90%;
     margin-top:2.5%;
 }
+
+
+
+
+/* =========== Main Sale ============== */
+
+.main-sale-container section{
+    width: 100%;
+    height: 800px;
+    overflow: hidden;
+    padding-top: 50px;
+    
+}
+
+.main-sale-image{
+    display: flex;
+    justify-content: center;
+    transition: all ease 1s;
+    
+}
+
+
+
+.main-sale-link a{
+    font-size: 1.2rem;
+    font-family: var(--main-font);
+    color: var(--main-color);
+    text-decoration: none;
+    transition: all ease 0.2s;
+}
+.main-sale-link a:hover{
+  
+    color: rgb(105, 14, 190);
+    transform: scale(1.05%);
+}
+
+
+

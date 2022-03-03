@@ -25,6 +25,13 @@
     align-items: center;
   }
 
+  .main-title{
+    font-size: 4rem;
+    font-weight: 700;
+    color:var(--main-color);
+    letter-spacing: 1.2px;
+  }
+
   
 </style>
 

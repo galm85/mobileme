@@ -21,6 +21,7 @@
     display: flex;
     align-items: center;
   }
+  
 
   
 </style>
@@ -30,7 +31,7 @@
     <img src="<?=ASSETS?>/images/mainBanner.png"  alt="iphone 13 banner">
     <div class="banner-data">
       <h1 class="main-title">IPHONE<span class="font-black"> 13 </span>  SERIES</h1>
-      <button class="button is-info " style="margin-left:20px">GET NOW</button>
+      <a href="<?=ROOT?>/iphone_13" class="button is-info " style="margin-left:20px">GET NOW</a>
     </div>
   </div>
 
@@ -110,7 +111,7 @@
             <div class="row">
               <div class="col-12">
                 <h3 class="text-center">Stay Update</h3>
-                <h5 class="text-center">Sign-in o our news letter</h5>
+                <h5 class="text-center">Sign-in to our news letter</h5>
               </div>
             </div>
 
@@ -134,7 +135,7 @@
                     
                     <div class="col-12 mt-5">
                       <div class="text-center">
-                        <button class="btn btn-outline-primary">Sign</button>
+                        <button type="button" id="newsLetterBtn" class="btn btn-outline-primary">Sign</button>
                       </div>
                     </div>
 
@@ -142,14 +143,38 @@
               </div>
             </div>
 
+          
 
           </div>
   </section>
 
+  <div class="notification is-info " id="newsLetterNote">
+              <button class="closeNote" style="position:absolute;top:10px;right: 10px;">X</button>
+                <h5 class="text-center font-bold"> Thank you for signing to our news letter</h5>
+                <p class="text-center">You will a weekly mail with all of our best salse and event</p>
+                <p class="text-center">you can unsubscripe any time</p>
+            </div>
+
+<?php $this->view('includes/footer'); ?>
 
 
-<?php
-    $this->view('includes/footer');    
+<script>
 
-?>
+            const newsLetterBtn = document.getElementById('newsLetterBtn');
+            const newsLetterNote = document.getElementById('newsLetterNote');
+            const closeNote = document.querySelector('.closeNote');
+            
+            newsLetterBtn.addEventListener('click',()=>{
+              
+              newsLetterNote.style.transform ='translateX(0)';
+              setTimeout(()=>{
+                newsLetterNote.style.transform ='translateX(150%)';
+              },4000);
+            })
+
+            closeNote.addEventListener('click',()=>{
+              newsLetterNote.style.transform ='translateX(150%)';
+            })
+
+</script>
 
