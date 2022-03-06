@@ -60,6 +60,7 @@
                                 <td><?=$product->sale_price?></td>
                                 <td>
                                     <button class="btn btn-danger deleteProduct" data-id="<?=$product->id ?>">Delete</button>
+                                    <a class="btn btn-warning" href="<?=ROOT?>/admin/edit_product/<?=$product->id?>" >Edit</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

@@ -272,4 +272,69 @@
         self::$data['title'] .= 'Admin - Users';
         return $this->view('admin/users',self::$data);
     }
+
+
+
+    public function edit_product($product_id){
+
+        $productModel = new Product();
+        $brandModel = new Brand();
+        $categoryModel = new Category();
+
+
+        self::$data['title'] .= 'Admin - Edit Product';
+        self::$data['product'] = $productModel->single('id',$product_id);
+        self::$data['categories'] = $categoryModel->findAll();
+        self::$data['brands'] = $brandModel->findAll();
+        
+
+        $this->view('admin/edit-product',self::$data);
+
+        
+
+    }
+
+
+    public function patch_product($product_id){
+        
+        $productModel = new Product();
+
+        if($productModel->validate($_POST)){
+           
+            if(isset($_FILES['main_image'])){
+                $image = $productModel->upload_image($_FILES['main_image']);
+                    if($image){
+                        $_POST['main_image'] = $image;
+                    }       
+            }
+
+            
+            $_POST['on_sale'] = isset($_POST['on_sale']) ? 1 : 0;
+            $_POST['on_stock'] = isset($_POST['on_stock']) ? 1 : 0;
+
+            
+            $res = $productModel->update($product_id,$_POST);
+            
+            if($res){
+               $response = new stdClass();
+               $response->status = true;
+               echo json_encode($response);
+            }else{
+                $response = new stdClass();
+               $response->status = false;
+               echo json_encode($response);
+            }
+      
+
+        }else{
+
+            $response = new stdClass();
+            $response->status = false;
+            $response->errors = $productModel->errors;
+            
+            echo json_encode($response);
+
+        }
+
+    }
 }

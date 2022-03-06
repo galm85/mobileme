@@ -12,7 +12,7 @@
 
 
         static public function get_old_select($key,$value,$default=null){
-            if (isset($_POST[$key]) && $_POST[$key] == $value ){
+            if ( (isset($_POST[$key]) && $_POST[$key] == $value) || ($value == $default) ){
                 return 'selected';
             }
             return $default;
@@ -20,7 +20,7 @@
 
 
         static public function get_old_checkbox($key,$default=null){
-            if(isset($_POST[$key]) && ($_POST[$key] == 'on' || $_POST[$key] == 1)){
+            if(( isset($_POST[$key]) && ($_POST[$key] == 'on' || $_POST[$key] == 1))  || ($default == 1 )){
                 return 'checked';
             }
             return $default;

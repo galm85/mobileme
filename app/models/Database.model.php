@@ -33,9 +33,18 @@
          * @param String $type - type of the query result (default as FATCH)
          */
         public function query($query,$data=[],$type='fetch'){
+
+            // echo '<pre> <br>';
+            // echo $query;
+            // echo '<br>';
+            // print_r($data);
+            // die;
          
             try{
                 $db = $this->connect();
+                $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+            
                 $statement = $db->prepare($query);
                 $check = $statement->execute($data);
                 
@@ -108,7 +117,21 @@
         }
 
 
-        public function update($data){
+        public function update($id,$data){
+
+      
+            $keys = array_keys($data);     
+            $set ="";
+
+            foreach($keys as $key){
+                $set .= "$key = :$key,";
+            }
+
+            $set = rtrim($set,",");
+            $sql = "UPDATE $this->table SET $set  WHERE id = $id";
+            $res = $this->query($sql,$data,'update');
+            
+             return $res;
             
         }
 

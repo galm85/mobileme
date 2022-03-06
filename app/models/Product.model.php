@@ -145,6 +145,28 @@
              
         
 
+        public function updateProduct($id,$data){
+           
+            $category_id = $data['categorie_id'];
+            $brand_id = $data['brand_id'];
+            $title = $data['title'];
+            $article = $data['article'];
+            $summery = $data['summery'];
+            isset($data['on_sale'])? $on_sale = $data['on_sale'] : '';
+            isset($data['on_stock'])? $on_sale = $data['on_stock'] : '';
+            
+            $price = $data['price'];
+            if(isset($data['main_image'])){
+                $main_image = $data['main_image'];
+            }
+            if(isset($data['sale_price'])){
+                $sale_price = $data['sale_price'];
+            }
+            $sql = "UPDATE products SET categorie_id = '$category_id', brand_id = '$brand_id', title='$title' ,article = '$article', summery = '$summery',price='$price' WHERE id = $id ";
+            $this->query($sql,null,'update');
+
+        }
+
 
     }
 
