@@ -220,52 +220,82 @@
 
 
 
-/* =========== Home Page ================ */
+/* =========== Product Card ================ */
 
-.home-card{
+.product-card{
     height: 400px;
     padding: 0;
+    position: relative;
 }
 
-.home-card a{
+.product-card a{
     width: 100%;
     height: 100%;
     text-decoration: none;
 }
 
-.home-card-image{
+.product-card-image{
     width: 100%;
     height: 80%;
     transition: all ease 0.2s;
 }
 
-.home-card-image img{
+.product-card-image img{
     width: 100%;
     height: 100%;
     object-fit: contain;
     
 }
 
-.home-card-data{
+.product-card-data{
     width: 100%;
     height: 20%;
 }
 
-.home-card-data h6{
+.product-card-data h6{
     margin-top: 10px;
     font-size: 20px;
     color:var(--main-color);
 }
 
-.home-card-data p{
+.product-card-data p{
     font-size: 16px;
     font-weight: 300;
     color: rgba(0, 0, 0, 0.7);
 }
 
-.home-card:hover .home-card-image{
+.product-card:hover .product-card-image{
     transform: scale(1.05);
 }
+
+
+.not-available{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    background-color:rgba(255, 255, 255, 0.4);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.not-available p{
+    font-family: var(--main-font);
+    font-size: 30px;
+    font-weight: 300;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+}
+
+
+
+
+
+/* =========== Home Page ================ */
+
 
 #news-letter-container h3{
     font-size: 4rem;
@@ -307,7 +337,7 @@
 
 
 /*  =====================  PRODUCT CARD ================== */
-
+/* 
 .product-card{
     height: 350px;
     margin:0 25px 100px 25px;
@@ -344,7 +374,7 @@
     width: 100%;
     margin-top: 10px;
    
-}
+} */
 
 
 
@@ -363,9 +393,6 @@ footer{
     padding-bottom: 20px;
 }
 
-.footer-details{
-
-}
 
 .footer-details h3{
     font-size: 2rem;

@@ -31,7 +31,7 @@
     <img src="<?=ASSETS?>/images/mainBanner.png"  alt="iphone 13 banner">
     <div class="banner-data">
       <h1 class="main-title">IPHONE<span class="font-black"> 13 </span>  SERIES</h1>
-      <a href="<?=ROOT?>/iphone_13" class="button is-info " style="margin-left:20px">GET NOW</a>
+      <a href="<?=ROOT?>/iphone_13" class="button is-info " style="margin-left:20px;text-decoration: none;">GET NOW</a>
     </div>
   </div>
 
@@ -50,6 +50,7 @@
         <?php if($sales):?>
           <?php foreach($sales as $row):?>
             <div class="col-2 mx-1 home-card">
+                
                 <a href="<?=ROOT?>/smartphones/<?=str_replace(' ','-',strtolower($row->brand_title))?>/<?=str_replace(' ','-',strtolower($row->title))?>/">
                   <div class="home-card-image">
                     <img src="<?=ASSETS?>/images/products/<?=$row->main_image?>" width="100%"  alt="">
@@ -76,12 +77,12 @@
       <div class="row my-5 justify-content-between"  id="new-phones-div" style="transform:translateX(-150%);transition:all ease 2s">
         <?php if($new):?>
           <?php foreach($new as $row):?>
-            <div class="col-2 mx-1 home-card">
+            <div class="col-2 mx-1 product-card">
                 <a href="<?=ROOT?>/smartphones/<?=str_replace(' ','-',strtolower($row->brand_title))?>/<?=str_replace(' ','-',strtolower($row->title))?>/">
-                  <div class="home-card-image">
+                  <div class="product-card-image">
                     <img src="<?=ASSETS?>/images/products/<?=$row->main_image?>" width="100%"  alt="">
                   </div>
-                  <div class="home-card-data">
+                  <div class="product-card-data">
                     <h6><?=$row->title?></h6>
                     <p>$ <?=$row->on_sale? $row->sale_price : $row->price ?></p>
                   </div>

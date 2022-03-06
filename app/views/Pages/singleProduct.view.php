@@ -19,8 +19,11 @@
             <?php else:?>
                 <h3 class="font-bold" style="font-size:1.6rem; margin-top:10px">$<?=$product->price?></h3>
             <?php endif;?>
+            <?php if(!$product->on_stock):?>
+                <h3 class="font-bold text-danger" style="font-size:1.6rem; margin-top:10px">Out Of Stock</h3>      
+            <?php endif;?>
             <p><?=$product->summery?></p>
-            <button class="button is-info" id="addToCartBtn" data-id="<?=$product->id?>" style="margin-top:100px;width: 100px;"><i class="fas fa-cart-plus"></i></button>
+            <button class="button is-info" id="addToCartBtn" <?=!$product->on_stock ? 'disabled' : ''?> data-id="<?=$product->id?>" style="margin-top:100px;width: 100px;"><i class="fas fa-cart-plus"></i></button>
         </div>
 
 
