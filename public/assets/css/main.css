@@ -332,7 +332,22 @@
 
 
 
+#airpod{
+    opacity: 0;
+    transition: all ease 2s;
+}
 
+#airpod .airpod-data h2{
+    font-family: var(--main-font);
+    color: var(--main-color);
+    font-size: 35px;
+    font-weight: 700;
+}
+#airpod .airpod-data {
+    font-family: var(--main-font);
+    font-size: 20px;
+    font-weight: 300;
+}
 
 
 

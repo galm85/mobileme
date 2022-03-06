@@ -26,7 +26,7 @@
   
 </style>
 
-
+<!-- main banner -->
   <div class="main-banner">
     <img src="<?=ASSETS?>/images/mainBanner.png"  alt="iphone 13 banner">
     <div class="banner-data">
@@ -34,13 +34,30 @@
       <a href="<?=ROOT?>/iphone_13" class="button is-info " style="margin-left:20px;text-decoration: none;">GET NOW</a>
     </div>
   </div>
+<!-- end main banner -->
 
+<div id="airpod" class="container my-5 ">
+  <div class="row justify-content-center">
 
+    <div class="airpod-image col-md-5">
+      <img src="<?=ASSETS?>/images/airpods.png" width="70%" alt="">
+    </div>
+    
+    <div class="airpod-data col-md-4 d-flex flex-column justify-content-center  align-items-center ms-1 ">
+      <h2>The New Air Pods Pro</h2>
+      <p class="text-center">Apple's new headset.<br> from <b>$299.99</b></p>
+      <a class="btn btn-success" href="<?=ROOT?>/accessories/apple/airpods-pro">Buy Now</a>
+    </div>
+  </div>
+</div>
 
+<hr class="p-0 m-0">
+
+<!-- products silders -->
   <section class="best-cells">
-    <div class="container">
+    <div class="container-fluid  bg-light" style="padding: 0 200px;">
 
-      <div class="row mt-5" >
+      <div class="row pt-5" >
           <div class="col-12">
             <h2 class="display-5 text-center text-primary">Explore Best Deals on SmartPhones</h2>
           </div>
@@ -49,13 +66,13 @@
       <div class="row my-5 justify-content-between" id="sales-phones-div" style="transform:translateX(150%);transition:all ease 2s">
         <?php if($sales):?>
           <?php foreach($sales as $row):?>
-            <div class="col-2 mx-1 home-card">
+            <div class="col-2 mx-1 product-card">
                 
                 <a href="<?=ROOT?>/smartphones/<?=str_replace(' ','-',strtolower($row->brand_title))?>/<?=str_replace(' ','-',strtolower($row->title))?>/">
-                  <div class="home-card-image">
+                  <div class="product-card-image">
                     <img src="<?=ASSETS?>/images/products/<?=$row->main_image?>" width="100%"  alt="">
                   </div>
-                  <div class="home-card-data">
+                  <div class="product-card-data">
                     <h6><?=$row->title?></h6>
                     <p>$ <?=$row->on_sale? $row->sale_price : $row->price ?></p>
                   </div>
@@ -103,9 +120,11 @@
 
     </div>  
   </section>
+<!-- end products silders -->
 
 
 
+<!-- new letter -->
   <section class="my-5 py-5 " id="news-letter-container"style="transform:translateX(150%);transition:all ease 1s;background-color:rgba(0,0,0,0.05)" >
           <div class="container">
             
@@ -156,6 +175,8 @@
                 <p class="text-center">you can unsubscripe any time</p>
             </div>
 
+
+
 <?php $this->view('includes/footer'); ?>
 
 
@@ -177,5 +198,13 @@
               newsLetterNote.style.transform ='translateX(150%)';
             })
 
+
+            $(document).ready(()=>{
+              setTimeout(()=>{
+                $('#airpod').css('opacity','1');
+
+              },500);
+
+            })
 </script>
 

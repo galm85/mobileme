@@ -214,11 +214,11 @@ $(window).scroll( (event)=> {
       $('.top-bar').css('box-shadow','none');
    }
 
-   if(scroll > 350){
+   if(scroll > 800){
       $('#new-phones-div').css('transform',`translateX(0)`);
    }
 
-   if(scroll > 1000){
+   if(scroll > 1500){
       $('#news-letter-container').css('transform',`translateX(0)`);
    }
 
