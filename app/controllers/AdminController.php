@@ -301,6 +301,8 @@
 
         if($productModel->validate($_POST)){
            
+         
+
             if(isset($_FILES['main_image'])){
                 $image = $productModel->upload_image($_FILES['main_image']);
                     if($image){
@@ -308,7 +310,7 @@
                     }       
             }
 
-            
+            $_POST['sale_price']  = isset($_POST['sale_price']) && !empty($_POST['sale_price']) ? $_POST['sale_price'] : 0.00;
             $_POST['on_sale'] = isset($_POST['on_sale']) ? 1 : 0;
             $_POST['on_stock'] = isset($_POST['on_stock']) ? 1 : 0;
 
