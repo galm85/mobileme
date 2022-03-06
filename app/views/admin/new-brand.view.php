@@ -78,7 +78,7 @@
         $('#addBrandForm').submit(function(e){
             e.preventDefault();
             $.ajax({
-                url:'http://localhost/mobile-me/public/admin/add_brand',
+                url:BASE_URL+'/admin/add_brand',
                 method:'POST',
                 data: new FormData(this),
                 contentType:false,
@@ -100,11 +100,7 @@
    
 
  
-        // const validateBrand = ()=>{
-        //     if($('#title').val()==''){
-        //         alert ('please Insert title');
-        //     }
-        // }
+   
 
 </script>
 

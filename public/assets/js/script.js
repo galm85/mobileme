@@ -43,7 +43,7 @@ $('.deleteProduct').on('click',function(){
       let id = $(this).data('id');
       
       $.ajax({
-         url:'http://localhost/mobile-me/public/admin/delete_product',
+         url:BASE_URL + '/admin/delete_product',
          type:'POST',
          data:{id:id},
          success:function(res){
@@ -64,7 +64,7 @@ $('#addToCartBtn').on('click',function(){
 
    let product = {product_id:id,amount:1};
    $.ajax({
-      url:'http://localhost/mobile-me/public/cart/add_item_to_cart',
+      url:BASE_URL + '/cart/add_item_to_cart',
       type:'POST',
       data:{product},
       success:function(res){
@@ -85,7 +85,7 @@ $('.updateAmountBtn').on('click',function(){
    let id = $(this).data('id');
    
    $.ajax({
-      url:'http://localhost/mobile-me/public/cart/update_amount_in_cart',
+      url:BASE_URL + '/cart/update_amount_in_cart',
       type:'POST',
       data:{op,id},
       success:function(res){
@@ -102,7 +102,7 @@ $('.removeFromCartBtn').on('click',function(){
 
       let id = $(this).data('id');
      $.ajax({
-      url:'http://localhost/mobile-me/public/cart/remove_from_cart',
+      url:BASE_URL + '/cart/remove_from_cart',
       type:'POST',
       data:{id},
       success:function(res){

@@ -74,7 +74,7 @@
         let id = $(this).data('id');
       
         $.ajax({
-            url:`http://localhost/mobile-me/public/order/get_user_orders/${id}`,
+            url:`${BASE_URL}/order/get_user_orders/${id}`,
             type:"GET",
             success:function(response){
                response = JSON.parse(response);

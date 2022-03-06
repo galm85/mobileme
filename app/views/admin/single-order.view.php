@@ -92,7 +92,7 @@
         id = $(this).data('id');
         
         $.ajax({
-            url:'http://localhost/mobile-me/public/admin/change_status',
+            url:BASE_URL+'/admin/change_status',
             method:'POST',
             data:{id,status},
             success:function(response){

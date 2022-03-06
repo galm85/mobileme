@@ -156,7 +156,7 @@ $('#editProductForm').submit(function(e){
          
 
             $.ajax({
-                url:`http://localhost/mobile-me/public/admin/patch_product/${id}`,
+                url:`${BASE_URL}/admin/patch_product/${id}`,
                 method:'POST',
                 data: new FormData(this),
                 contentType:false,
@@ -167,7 +167,6 @@ $('#editProductForm').submit(function(e){
                         response = JSON.parse(response);
                         if(response.status){
                             window.location = BASE_URL + "/admin/products";
-                            // window.location = "http://localhost/mobile-me/public/admin/products";
                         }else{
                             
                             displayError(response.errors.title,'title');
