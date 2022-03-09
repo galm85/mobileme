@@ -5,4 +5,5 @@
 ?>
 
 
-
+<div id="generalMessage"></div>
+<div id="confirmMessage"></div>

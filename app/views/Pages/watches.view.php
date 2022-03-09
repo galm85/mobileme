@@ -67,7 +67,7 @@
               <?php if(count($products) > 0): ?>
                 <?php foreach($products as $row):?>
                   <div class="col-3  product-card mb-5">
-                        <a href="<?=ROOT?>/smartphones/<?=str_replace(' ','-',strtolower($row->brand_title))?>/<?=str_replace(' ','-',strtolower($row->title))?>/">
+                        <a href="<?=ROOT?>/watches/<?=str_replace(' ','-',strtolower($row->brand_title))?>/<?=str_replace(' ','-',strtolower($row->title))?>/">
                             
                             <div class="product-card-image">
                               <img src="<?=ASSETS?>/images/products/<?=$row->main_image?>" width="100%"  alt="">

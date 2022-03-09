@@ -12,11 +12,7 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-12">
-           Tot <?=$amount?>
-        </div>
-    </div>
+ 
 
    
     <div class="row">
@@ -91,8 +87,9 @@
 
 
 
-  <?php
-    $this->view('includes/footer');    
 
-?>
+  <?php $this->view('includes/footer'); ?>
 
+
+
+ 

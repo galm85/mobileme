@@ -1,6 +1,68 @@
 
 const BASE_URL = 'http://localhost/mobile-me/public';
 
+// GENREAL FUNCTION 
+
+const reloadPage = ()=>{
+   window.location.reload();
+}
+
+const createMessage =async (title,fn=null)=>{
+
+   let generalMessage = document.getElementById('generalMessage');
+   generalMessage.innerHTML = `<h4>${title}</h4>`;   
+   generalMessage.style.transform = 'translateX(0)';
+   
+   let btn = document.createElement('button');
+   btn.setAttribute('id','closeBtn');
+   btn.innerHTML = 'x';
+   
+   generalMessage.append(btn);
+
+   setTimeout(()=>{
+       generalMessage.style.transform = 'translateX(150%)';   
+       fn();
+   },4000);
+
+
+   $('#closeBtn').on('click',()=>{
+      generalMessage.style.transform = 'translateX(150%)';
+      fn(); 
+
+   })
+   
+}
+
+
+
+const confirmMessage = (question)=>{
+   const message = document.getElementById('confirmMessage');
+   message.style.transform ='translateX(-50%)';
+
+   message.innerHTML = `<h3>${question}?</h3>
+                           <div class="d-flex justify-content-around mt-5 mb-3" style="width:100%">
+                              <button  id="cancel" class="btn btn-danger ">Cancel</button>
+                              <button  id="confirm" class="btn btn-success ">Confirm</button>
+                           </div>
+                        `;
+   const cancel = document.getElementById('cancel');
+   const confirm = document.getElementById('confirm');
+   
+   return {message,cancel,confirm};
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 //upload product image
 $('#uploadImageInput').on('change',()=>{
@@ -36,7 +98,7 @@ $('#uploadUserImageInput').on('change',()=>{
 
 
 
-// delete product
+// delete product - ADMIN
 $('.deleteProduct').on('click',function(){
 
    if(window.confirm('Delete this product?')){
@@ -58,6 +120,7 @@ $('.deleteProduct').on('click',function(){
 
 
 
+
 // add to cart
 $('#addToCartBtn').on('click',function(){
    let id = $(this).data('id');
@@ -67,9 +130,9 @@ $('#addToCartBtn').on('click',function(){
       url:BASE_URL + '/cart/add_item_to_cart',
       type:'POST',
       data:{product},
-      success:function(res){
-         alert('Product add to cart');
-         window.location.reload();
+      success:  function(res){
+         createMessage('Item add To Cart',reloadPage)
+
       }
    })
   
@@ -89,7 +152,8 @@ $('.updateAmountBtn').on('click',function(){
       type:'POST',
       data:{op,id},
       success:function(res){
-         window.location.reload();
+         
+         window.location.reload()
       }
    })
 
@@ -98,22 +162,38 @@ $('.updateAmountBtn').on('click',function(){
 
 //remove item from cart
 $('.removeFromCartBtn').on('click',function(){  
-   if(window.confirm('Remove from Cart?')){
-
-      let id = $(this).data('id');
-     $.ajax({
-      url:BASE_URL + '/cart/remove_from_cart',
-      type:'POST',
-      data:{id},
-      success:function(res){
-         window.location.reload();
-      }
-      
-     })
-   }
    
+   let id = $(this).data('id');
+   const {message,confirm,cancel} = confirmMessage('Remove from Cart');
+   
+   confirm.addEventListener('click',()=>{
+      message.style.transform ='translateX(250%)';
+      $.ajax({
+         url:BASE_URL + '/cart/remove_from_cart',
+         type:'POST',
+         data:{id},
+         success:function(res){
+            createMessage('Item Removed',reloadPage); 
+         }
+         
+      })
+   });
 
+   cancel.addEventListener('click',()=>{
+      message.style.transform ='translateX(250%)';
+   });
+
+
+      
+      
+   
+   
 })
+
+
+
+
+
 
 
 
@@ -208,7 +288,7 @@ $(window).scroll( (event)=> {
       
       
    }else{
-      $('.top-bar').css('background','none');
+      $('.top-bar').css('background','rgba(0, 0, 0, 0.1)');
       $('#sideMenuBtn').css('color','var(--main-color)');
       $('#mobile-me-logo').css('color','var(--main-color)');
       $('.top-bar').css('box-shadow','none');
@@ -225,3 +305,9 @@ $(window).scroll( (event)=> {
 
   
 });
+
+
+
+
+
+

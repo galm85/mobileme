@@ -2,6 +2,7 @@
   if($user = Auth::get_user()){
     $cartModel = new Cart();
     $amount = $cartModel->getAmountItems($user->id);
+    
   }
 ?>
 

@@ -26,7 +26,7 @@
             self::$data['header'] = strtoupper(str_replace('-',' ',$item));
             self::$data['product'] = $product->single('title',str_replace('-',' ',$item)); 
             self::$data['title'] .= str_replace('-',' ',$item);
-
+            self::$data['user'] = Auth::get_user();
            return $this->view('pages/singleProduct',self::$data);
         }
 
@@ -40,6 +40,7 @@
         }
         self::$data['brands'] = $brandModel->findAll();
         self::$data['title'] .= 'Smart Phones';
+      
         $this->view('pages/smartphones',self::$data);
     }
 
@@ -47,13 +48,14 @@
     public function watches($brand=null,$item=null){
         $brandModel = new Brand();
         $product = new Product();
+        
 
         if(isset($item)){
             
             self::$data['header'] = strtoupper(str_replace('-',' ',$item));
             self::$data['product'] = $product->single('title',str_replace('-',' ',$item)); 
             self::$data['title'] .= str_replace('-',' ',$item);
-
+            self::$data['user'] = Auth::get_user();
            return $this->view('pages/singleProduct',self::$data);
         }
 
@@ -62,8 +64,9 @@
         }else{   
             self::$data['products'] = $product->getAllWatchesByBrand($brand);
         }
+        
+        
         self::$data['brands'] = $brandModel->findAll();
-
         self::$data['title'] .= 'Watches';
         $this->view('pages/watches',self::$data);
     }
@@ -78,7 +81,7 @@
             self::$data['header'] = strtoupper(str_replace('-',' ',$item));
             self::$data['product'] = $productModel->single('title',str_replace('-',' ',$item)); 
             self::$data['title'] .= str_replace('-',' ',$item);
-
+            self::$data['user'] = Auth::get_user();
            return $this->view('pages/singleProduct',self::$data);
         }
 
