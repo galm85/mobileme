@@ -231,4 +231,23 @@
 
 
     }
+
+
+    public function search(){
+        $productsModel = new Product();
+        // $search = $_GET['search'];
+        $search = filter_input(INPUT_GET, 'search', FILTER_SANITIZE_STRING);
+        
+        
+        self::$data['products'] = $productsModel->searchProduct($search);
+        self::$data['search'] = $search;
+        $this->view('pages/search',self::$data);
+
+
+
+
+    }
+
+
+
  }

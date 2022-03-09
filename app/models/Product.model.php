@@ -168,6 +168,17 @@
         }
 
 
+        public function searchProduct($search){
+
+            $sql = "SELECT * FROM products  WHERE title LIKE concat('%' , ?, '%')";
+            $sql2 = "SELECT p.*,b.title as brand_title,c.title as category_title FROM products p 
+                     LEFT JOIN brands b ON p.brand_id = b.id 
+                     LEFT JOIN categories c ON p.categorie_id = c.id
+                     WHERE p.title LIKE concat('%' , ?, '%')";
+            $products = $this->query($sql2,[$search]);
+            return $products;
+        }
+
     }
 
 

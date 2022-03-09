@@ -55,9 +55,19 @@
 <header>
     <div class="top-bar">
       <div class="d-flex ms-5 align-items-center">
-        <button id="sideMenuBtn" class="me-5"><i class="fa-solid fa-bars"></i></button>
-        <a id="mobile-me-logo" href="<?=ROOT?>/">MobileMe</a>
-        <!-- <a id="mobile-me-logo" href="<?=ROOT?>/"><img class="mt-2" src="<?=ASSETS?>/images/logo.png" width="200px" alt="mobile me logo"></a> -->
+        <div class="d-flex">
+          <button id="sideMenuBtn" class="me-5"><i class="fa-solid fa-bars"></i></button>
+          <a id="mobile-me-logo" href="<?=ROOT?>/">MobileMe</a>
+        </div>
+
+        
+          <div class="d-flex align-items-center  ms-5">
+            <form action="<?=ROOT?>/search" method="GET">
+              <input type="text" name="search" class="input is-info me-1" style="width: 300px;background:lightgray;font-family: var(--main-font);" placeholder="Search">
+              <button type="submit" class="button is-info"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+          </div>
+        
       </div>
 
       <div>
