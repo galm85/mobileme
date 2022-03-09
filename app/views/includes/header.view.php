@@ -43,6 +43,7 @@
       <a href="<?=ROOT?>/accessories">Accessories</a>
       <a href="<?=ROOT?>/sales">Sales</a>
       <a href="<?=ROOT?>/new">New</a>
+      <a href="<?=ROOT?>/lab">Lab</a>
       
     </div>
   </div>
@@ -84,7 +85,7 @@
           </div>
 
         <?php else: ?>
-          <a href="<?=ROOT?>/signin">Sign In</a>
+          <a style="display: block;text-decoration: none; background:white;padding:10px;border-radius: 10px;color:var(--main-color);" href="<?=ROOT?>/signin">Sign In</a>
         <?php endif; ?>
 
       </div>

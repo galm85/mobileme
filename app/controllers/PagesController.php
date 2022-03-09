@@ -216,4 +216,16 @@
 
        
     }
+
+
+
+    public function lab(){
+
+        self::$data['user'] = Auth::get_user();
+        self::$data['title'] .= 'LAB';
+
+        $this->view('pages/lab',self::$data);
+
+
+    }
  }

@@ -29,11 +29,11 @@
 </style>
 
 
-  <div class="main-banner">
+<div class="main-banner">
     <img src="<?=ASSETS?>/images/mainBanner.png"  alt="iphone 13 banner">
     <div class="banner-data">
-      <h1 class="main-title">Register<span class="font-black"> 13 </span>  SERIES</h1>
-      <button class="button is-info " style="margin-left:20px">GET NOW</button>
+      <h1 class="main-title display-2 ms-5 font-black" style="color:var(--main-color);">Register</h1>
+      
     </div>
   </div>
 
