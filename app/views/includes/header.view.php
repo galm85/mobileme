@@ -43,7 +43,6 @@
       <a href="<?=ROOT?>/watches">Watches</a>
       <a href="<?=ROOT?>/accessories">Accessories</a>
       <a href="<?=ROOT?>/sales">Sales</a>
-      <a href="<?=ROOT?>/new">New</a>
       <a href="<?=ROOT?>/lab">Lab</a>
       
     </div>

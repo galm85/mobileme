@@ -11,7 +11,7 @@
 
     <div class="container mt-5">
     
-        <div class="row">
+        <div class="row pt-5">
             <div class="col-md-4">
                 <div class="profile-image">
                     <img style="border-radius: 50%;" src="<?=ASSETS?>/images/users/<?=$user->image?>" alt="">

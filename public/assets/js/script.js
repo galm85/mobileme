@@ -309,20 +309,6 @@ $(window).scroll( (event)=> {
 
 
 
-// Navbar search
-// $('#searchFrom').submit(function(e){
-//    e.preventDefault();
-//    $.ajax({
-//       url:BASE_URL + '/search',
-//       type:'POST',
-//       data:new FormData(this),
-//       contentType:false,
-//       processData:false,
-      
-//    })
-// })
-
-
 
 
 

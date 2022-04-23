@@ -47,21 +47,35 @@
             <div class="row justify-space-between">
                 <?php if(count($products) > 0): ?>
                   <?php foreach($products as $row):?>
-                    <div class="col-md-2 product-card  p-0">
-                        
-                        <div class="product-image">
-                          <a href="<?=ROOT?>/smartphones/<?=str_replace(' ','-',strtolower($row->brand_title))?>/<?=str_replace(' ','-',strtolower($row->title))?>/">
-                            <img src="<?=ASSETS?>/images/products/<?=$row->main_image?>"  alt="">
-                          </a>
-                        </div>
-                        
-                        <div class="product-data">
-                            <h5><?=$row->title?></h5>
-                            <h6>$<?=$row->price?></h6>
-                            <button class="button is-info add-to-cart-btn"><i class="fas fa-cart-plus"></i></button>
-                        </div>
+                    <div class="col-3  product-card mb-5">
+                        <a href="<?=ROOT?>/watches/<?=str_replace(' ','-',strtolower($row->brand_title))?>/<?=str_replace(' ','-',strtolower($row->title))?>/">
+                            
+                            <div class="product-card-image">
+                              <img src="<?=ASSETS?>/images/products/<?=$row->main_image?>" width="100%"  alt="">
+                            </div>
+                            
+                            <div class="product-card-data ps-3">
+                              <h6><?=$row->title?></h6>
+                              <?php if($row->on_sale):?>
+                                <p>
+                                  <span style="text-decoration: line-through;">$<?=$row->price?></span>
+                                <br>  
+                                $<?=$row->sale_price?>
+                                </p>
+                                <?php else:?>
+                                  <p>$ <?=$row->price ?></p>
+                              <?php endif;?>
 
-                    </div>
+                            </div>
+                            
+                        </a>
+                        <?php if(!$row->on_stock):?>
+                          <div class="not-available">
+                            <p>out of stock</p>
+                          </div>
+                        <?php endif;?>
+                
+            </div>
                   <?php endforeach;?>  
                 <?php endif; ?>
 
